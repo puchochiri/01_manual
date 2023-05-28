@@ -1,0 +1,349 @@
+**작업**
+css
+css - jgit-cookbook 1차확인
+css - web-builder 2차확인
+
+
+
+commit
+final
+
+참고
+https://git-scm.com/book/ko/v2/%EB%B6%80%EB%A1%9D-B%3A-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%97%90-Git-%EB%84%A3%EA%B8%B0-JGit
+https://www.eclipse.org/jgit/
+https://www.eclipse.org/jgit/documentation/
+https://wiki.eclipse.org/JGit/User_Guide
+2014년 jGit/User Guide
+https://wiki.eclipse.org/index.php?title=JGit/User_Guide&oldid=373951
+2022년 **
+https://github.com/centic9/jgit-cookbook
+
+pom.xml
+	java1.8
+	<properties>
+		<java-version>1.8</java-version>
+		<org.springframework-version>5.1.13.RELEASE</org.springframework-version>
+		<org.aspectj-version>1.9.0</org.aspectj-version>
+		<org.slf4j-version>1.7.25</org.slf4j-version>
+	</properties>
+	
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+		<dependency>
+		    <groupId>org.eclipse.jgit</groupId>
+		    <artifactId>org.eclipse.jgit</artifactId>
+		    <version>3.5.0.201409260305-r</version>
+		</dependency>
+		
+		
+
+01. CreateNewRepository.java
+	새로운 레포지토리 추가
+02. OpenRepository.java
+	레포지토리 열기
+03. 
+
+
+// 업로드할 파일 추가
+git add 파일명
+git add *
+
+// commit
+git commit -m "코멘트"
+
+// commit revert (히스토리 유지)
+git revert 원복할 commitID
+
+// 업로드
+git push 저장소명 브랜치명
+git push origin main
+
+=======================================================
+git 개념
+https://data-ssung.tistory.com/276
+
+1. clone 가져오기
+2. 리스트 읽기
+3. git add : stage에 올린다.
+4. git commit : 변화한 부분 저장의미, 로컬 컴퓨터에 저장
+5. git push : 내 컴퓨터에 있는 파일을 클라우드 개념의 원격 저장소에 업로드함(github 등)
+
+------------------------------------------------
+github 업로드 절차(프로세스) 
+github에 파일을 업로드 하는 절차
+1. github 원격 저장소 생성
+2. github 원격 저장소 클론(복제하기)
+3. 내 로컬(내 컴퓨터)에 프로젝트 폴더 생성 후, 복제한 원격 저장소 다운받기
+4. 내 로컬의 원격 저장소 폴더에서 (코딩) 작업하기
+5. add 하기: 작업한 파일 중에서 원격 저장소에 반영할 부분 추가하기
+6. commit 하기: 먼저 로컬(내 컴퓨터)에서 수정된 (코딩)파일 반영하기
+7. push 하기: 로컬(내 컴퓨터)에서 수정한 (코딩)파일을 github 원격 저장소에 반영하기
+8. github.com/{나의 아이디}/{프로젝트 이름} 링크를 통해서 정상적으로 업로드되었는지 확인
+-------------------------------------------------------
+jgit push방법
+https://stackoverflow.com/questions/13446842/how-do-i-do-git-push-with-jgit
+http://www.java2s.com/example/java-api/org/eclipse/jgit/api/git/push-0-7.html
+https://www.programcreek.com/java-api-examples/?api=org.eclipse.jgit.api.PushCommand
+git clone,add,commit,push,clean up
+https://gist.github.com/SaitoWu/2487157
+git basic
+http://www.java2s.com/example/java-src/pkg/io/fabric8/itests/basic/git/gitutils-76ac6.html
+jgit tutorial
+https://www.vogella.com/tutorials/JGit/article.html
+github jgit pushcommand 검색
+https://github.com/search?p=3&q=PushCommand+pc+%3D+git.push%28%29%3B&type=Code
+GPTchat 검색
+jgit push 코드 만들어줘
+https://chat.openai.com/chat
+
+
+1. CloneRemoteRepository
+	git으로부터 받기
+	지정된 경로에 clone 받기
+2. Check_CommitAll
+	repository : Repository[C:\Users\doawi\AppData\Local\Temp\TestGitRepository17444373311059133245\.git]
+	Committed all changes to repository at C:\Users\doawi\AppData\Local\Temp\TestGitRepository17444373311059133245\.git
+
+
+
+// 
+
+	// Create a Git object
+	Git git = Git.open(new File("path/to/local/repository"));
+
+	// Get the current repository
+	Repository repository = git.getRepository();
+
+	// Create a new push command
+	PushCommand pushCommand = git.push();
+
+	// Set the remote repository
+	pushCommand.setRemote("origin");
+
+	// Set the branch to push
+	pushCommand.setRefSpecs(new RefSpec("refs/heads/master:refs/heads/master"));
+
+	// Set the credentials
+	pushCommand.setCredentialsProvider(new UsernamePasswordCredentialsProvider("username", "password"));
+
+	// Execute the push command
+	pushCommand.call();
+	
+	----------------------------------------
+	1. Push_working 확인
+	
+	2. Saito - main git push 확인
+	
+	
+	추가된 파일 올라옴
+	
+	글자 수정시
+	
+	
+	
+	
+에러1
+Exception in thread "main" org.eclipse.jgit.errors.RepositoryNotFoundException: repository not found: C:\Users\doawi\Downloads\gittest\ex02
+	at org.eclipse.jgit.lib.BaseRepositoryBuilder.build(BaseRepositoryBuilder.java:627)
+	at org.eclipse.jgit.api.Git.open(Git.java:93)
+	at org.eclipse.jgit.api.Git.open(Git.java:73)
+	at org.dstadler.check.Push_working.main(Push_working.java:32)
+	 해결
+	.git으로 File path 만들기
+	ex) File file = new File("C:\\Users\\doawi\\Downloads\\gittest");
+
+에러2
+Exception in thread "main" org.eclipse.jgit.api.errors.JGitInternalException: Exception caught during execution of push command
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:178)
+	at org.dstadler.check.Push_working.main(Push_working.java:60)
+Caused by: java.io.IOException: Source ref refs/heads/master doesn't resolve to any object.
+
+	해결
+	// pushCommand.setRefSpecs(new RefSpec("refs/heads/master:refs/heads/master"));
+    pushCommand.setRefSpecs(new RefSpec("refs/heads/*:refs/heads/*"));
+	pushCommand.setRefSpecs(new RefSpec("refs/heads/main:refs/heads/main"));
+
+
+
+
+에러3
+Exception in thread "main" org.eclipse.jgit.api.errors.TransportException: https://github.com/puchori/ex02.git: not authorized
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:159)
+	at org.dstadler.check.Push_working.main(Push_working.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/puchori/ex02.git: not authorized
+
+에러4
+credential clone 이후
+git-receive-pack not permitted
+
+ssh 대신 setCredentialsProvider이용하여 해결
+
+
+에러5
+Exception in thread "main" org.eclipse.jgit.api.errors.TransportException: https://gitlab.gemvaxlink.com/glk/nas.git: 
+Authentication is required but no CredentialsProvider has been registered
+
+
+https://gitlab.gemvaxlink.com/glk/nas.git: Authentication is required but no CredentialsProvider has been registered
+
+----------------------------------------------------
+test
+github
+1. credential 없이
+clone(ok) --> commitAll(ok) --> push(ok)--> pull(ok)
+1. credential 있고
+clone(ok) --> commitAll(ok) --> push(ok)--> pull(ok)_credential필요
+gitlab
+1. credential 없고 (안됨)
+clone --> commitAll --> push --> pull
+1. credential 있고
+clone(ok)_credential필요 --> commitAll(ok) --> push(ok)_credential필요 --> pull(ok)_credential필요
+
+처음 프로젝트 올릴시 
+git remote origin 등록 --> git pull --> git add --> git commit --> git push
+
+
+---------------------------------------------------------------------------------------------------------
+충돌만들기
+gitlab
+1.eclipse 먼저 수정올림
+2.  해당파일 로컬에서 수정후 풀없이 올림.
+-----------------------------------------------
+
+
+gitlap
+
+
+
+
+clone
+commit
+push
+-----------------------------------------------
+화면 만들기
+
+clone시 branch 선택코드
+구글검색키워드 : jgit clone branch
+https://www.eclipse.org/forums/index.php/t/1065371/
+
+			Git r = Git.cloneRepository().setDirectory(tmpDir)
+					.setURI("https://github.com/chalstrick/dondalfi.git").setBranchesToClone(Arrays.asList("refs/heads/test")).setNoCheckout(true)
+					.call();
+			for (Ref f : r.branchList().setListMode(ListMode.ALL).call())
+				System.out.println("found branch " + f.getName());
+				
+			
+-----------------------------------------------
+절차 및 인자
+1. 기존 프로젝트가 git에 있을 때
+	1) clone
+		필요변수 : (1)REMOTE_URL, (2)LOCALPATH, (3)GIT_ID, (4)GIT PASSWORD, (5)BRANCH_NAME
+		* github의 경우 GITPASSWORD가 TOKEN 임.
+		
+	2) commitAll
+		필요변수 : (2)LOCALPATH
+		
+	3) push
+		필요변수 : (1)REMOTE_URL, (2)LOCALPATH, (3)GIT_ID, (4)GIT PASSWORD, (5)BRANCH_NAME
+		* github의 경우 GITPASSWORD가 TOKEN 임.
+	
+	4) pull
+		필요변수 : (1)REMOTE_URL, (2)LOCALPATH, (3)GIT_ID, (4)GIT PASSWORD
+		* github의 경우 GITPASSWORD가 TOKEN 임.
+	// github	
+	git clone https://github.com/puchori/testtest.git
+	git clone https://github.com/puchori/testtest.git C:\Users\doawi\Downloads/testtest
+	git clone --branch testtest https://github.com/puchori/testtest.git C:\Users\doawi\Downloads/testtest
+	git clone --branch master https://github.com/puchochiri/todo-react-app.git C:\Users\doawi\dwb_git\01_FileAccessApiTest
+	git clone --branch testtest https://token@github.com/puchori/testtest.git C:\Users\doawi\Downloads/testtest
+	cd testtest
+	git remote -v
+	git branch
+	git status
+	git add .
+	git commit -m "testtest"
+	git push origin testtest
+    git pull https://github.com/puchori/testtest.git testtest
+	git pull https://token@github.com/puchori/testtest.git testtest
+	
+	//충돌시 충돌 파일 확인
+	C:\Users\doawi\Downloads\testtest>git pull https://token@github.com/puchori/testtest.git testtest
+		remote: Enumerating objects: 13, done.
+		remote: Counting objects: 100% (13/13), done.
+		remote: Compressing objects: 100% (4/4), done.
+		remote: Total 8 (delta 1), reused 0 (delta 0), pack-reused 0
+		Unpacking objects: 100% (8/8), 1.44 KiB | 12.00 KiB/s, done.
+		From https://github.com/puchori/testtest
+		 * branch            testtest   -> FETCH_HEAD
+		error: Your local changes to the following files would be overwritten by merge:
+				abc/asd.txt **
+				hhh/hhh.txt **
+		Please commit your changes or stash them before you merge.
+		Aborting
+		Updating b296d24..b908b15
+	
+	
+
+		// gitlab
+		// gitlab// gitlab// gitlab
+ git config --global core.autocrlf true
+
+2. 처음 프로젝트 git에 올릴때
+	**1) git init
+	2) git remote add origin https://github.com/puchochiri/todo-react-app.git
+	3) git remote -v
+	origin  https://token@github.com/puchori/testtest.git (fetch)
+	origin  https://token@github.com/puchori/testtest.git (push)
+	3) $ git remote set-url origin https://accessCode붙여넣기@github.com/유저이름/repo이름.git
+	2) git remote set-url origin https://token@github.com/puchori/testtest.git
+	**2) git remote add origin https://tokenq@github.com/puchochiri/springboot_react_pro_01.git
+	
+	2) git remote add origin https://github.com/puchori/testtest.git
+	**3) git pull https://github.com/puchori/testtest.git main
+	3) git pull https://github.com/puchochiri/todo-react-app.git main
+	4) git add .
+	5) git commit -m "commit message"
+	6) git config --global user.email "you@example.com"
+    7) git config --global user.name "Your Name"
+	**6) git branch -m master main
+	**6) git push origin main
+	
+	
+	git push https://token@github.com/puchori/testtest.git testtest
+	
+	test
+	
+	git clone --branch main https://tokenq@github.com/puchochiri/testtest.git C:\Users\doawi\Downloads/test1
+	git pull https://tokenq@github.com/puchochiri/testtest.git main
+	git remote add 
+	https://tokenq@github.com/puchochiri/testtest.git
+	git push https://tokenq@github.com/puchochiri/testtest.git main
+	
+	
+	
+	//git branch 명 master에서 main으로 변경
+	1) git branch
+		git branch -m master main
+		
+		
+		git remote add origin
+		
+			C:\Users\doawi\Downloads\testtest>git push origin main
+			error: src refspec main does not match any
+			error: failed to push some refs to 'https://github.com/puchori/testtest.git'
+	
+	2) branch 명 전환
+		git branch checkout [전환하고 싶은 브랜치명]
+	3) branch 작성과 체크아웃을 한꺼번에 실행
+		git branch -b [전환하고 싶은 브랜치명]
+	
+	// git remote origin 삭제
+		git remote rm origin
+	
+	1) 해당 파일에 GIT 연결
+		
+	
+	
+	remote: Permission to puchori/testtest.git denied to bitna2025.
+fatal: unable to access 'https://github.com/puchori/testtest.git/': The requested URL returned error: 403
+	
+	

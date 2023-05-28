@@ -1,0 +1,1176 @@
+1일 _ 20221201
+	01. centos 8 설치
+		google : centos usb 설치
+			https://kim-yj-0308.tistory.com/2
+				01) Centos 8Linux 설치
+				ifconfig :
+				
+			http://isoredirect.centos.org/centos/8-stream/isos/x86_64/	
+					bios 우선순위 설정
+					https://m.blog.naver.com/vslinux/220436742907
+			dvd 10gb 다운로드 할 것
+				02) bootable USB 만들기 Rufus 사용		
+				03) centos 8 booting
+			centos8 다운로드 링크
+			https://mirror.kakao.com/centos/8-stream/isos/x86_64/
+			집 ip
+			
+			
+			
+			
+			
+			192.111.111.1
+			리눅스 ssh 사용 원격 접속 프로토콜 centos
+			https://mirror.kakao.com/centos/8-stream/isos/x86_64/	
+			
+			집 컴퓨터 서버 셋팅 포트포워딩
+			https://notpeelbean.tistory.com/123*
+			
+			집 공유기 접속확인
+			https://zkim0115.tistory.com/2192#:~:text=%EB%AA%85%EB%A0%B9%20%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%97%90%EC%84%9C%20ipconfig%EB%A5%BC,%EA%B3%B5%EC%9C%A0%EA%B8%B0%EC%9D%98%20%EC%A0%91%EC%86%8D%20IP%EC%9E%85%EB%8B%88%EB%8B%A4.&text=%EC%9B%B9%20%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%A5%BC%20%EC%97%B4%EA%B3%A0%20%EC%A3%BC%EC%86%8C,%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%99%94%EB%A9%B4%EC%9D%B4%20%ED%91%9C%EC%8B%9C%EB%90%A9%EB%8B%88%EB%8B%A4.
+		
+			집 공유기 고정ip 설정
+			https://zkim0115.tistory.com/2192#:~:text=%EB%AA%85%EB%A0%B9%20%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EC%97%90%EC%84%9C%20ipconfig%EB%A5%BC,%EA%B3%B5%EC%9C%A0%EA%B8%B0%EC%9D%98%20%EC%A0%91%EC%86%8D%20IP%EC%9E%85%EB%8B%88%EB%8B%A4.&text=%EC%9B%B9%20%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%A5%BC%20%EC%97%B4%EA%B3%A0%20%EC%A3%BC%EC%86%8C,%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%ED%99%94%EB%A9%B4%EC%9D%B4%20%ED%91%9C%EC%8B%9C%EB%90%A9%EB%8B%88%EB%8B%A4.
+			192.168.219.1
+			centos 인터넷 자동연결
+			https://boring-notes.tistory.com/entry/CentOS-%EB%B6%80%ED%8C%85%EC%8B%9C-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%9E%90%EB%8F%99%EC%8B%9C%EC%9E%91-%EC%84%A4%EC%A0%95
+	
+			centos 밀고 재 설치시
+			고정ip 재설정
+	
+	putty에서 접근 가능한  ip
+	https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=yoojisung12&logNo=220970079053
+	
+		ubuntu 다운로드
+		https://heisanbug.tistory.com/17
+		
+
+	02. 부팅usb 만드릭
+
+		window 삭제 후 centos 설치
+		https://hm02123.tistory.com/m/2
+		LG의 경우 컴퓨터 부팅 시 [F2]을 연타하여 BIOS창에 접속 
+		[Boot] 탭에서 꽃아 둔 USB HDD를 우선순위 1번으로 올리기 ([shift  1]을 울러 활성화를 시킨 뒤 [shift +]를 눌러 우선순위를 가장 상단으로 올린다.)
+		[F10]을 눌러 저장 후 나간다.
+		Setup
+		installation type에서 Single Boot을 위해 Erase disk and install ubuntu 선택
+		USB 제거 후 Enter
+		재부팅
+		https://github.com/mishamosher/CentOS-WSL/releases/tag/7.9-2009
+		https://www.easeus.co.kr/todo-backup-resource/bootable-usb-not-working.html
+	
+	03. os설치
+		putty 설치
+			https://m.blog.naver.com/won2gonzo/221052618808
+	04. apach 설치/ 80포트로 접근
+	
+			Apache와 Tomcat 연동
+			yum -y install gcc gcc-c++, httpd-devel
+			yum install -y httpd
+			yum install -y autoconf libtool httpd-devel
+			집
+			192.168.219.107
+
+			centos8 apache 설치
+			https://jjeongil.tistory.com/1784
+				sudo yum install httpd
+				sudo systemctl enable httpd
+				sudo systemctl start httpd
+				sudo systemctl status httpd
+				sudo firewall-cmd --permanent --zone=public --add-service=http
+				sudo firewall-cmd --permanent --zone=public --add-service=https
+				sudo firewall-cmd --reload
+			
+			https://zetawiki.com/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%EC%84%A4%EC%A0%95%ED%8C%8C%EC%9D%BC_httpd.conf,_apache2.conf_%EC%9C%84%EC%B9%98_%ED%99%95%EC%9D%B8
+			https://satisfactoryplace.tistory.com/168
+	
+			CentOS이면 /etc/httpd/conf/httpd.conf
+			sudo nano /etc/httpd/conf/httpd.conf
+				<Directory /var/www/html>
+					Options FollowSymLinks
+					AllowOverride All
+					Require all granted
+				</Directory>
+			우분투이면 /etc/apache2/apache2.conf
+			[@zetawiki ~]# httpd -V | egrep "(HTTPD\_|SERVER\_CONFIG\_FILE)"
+			 -D HTTPD_="/etc/httpd"
+			 -D SERVER_CONFIG_FILE="conf/httpd.conf"
+
+			https://velog.io/@yebali/Apache-Linux-Apache-%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95
+			https://veneas.tistory.com/entry/Linux-CentOS7-Apache-%EC%84%A4%EC%B9%98-%EC%95%84%ED%8C%8C%EC%B9%98-%EC%9B%B9-%EC%84%9C%EB%B2%84
+			apache 삭제
+			https://ansan-survivor.tistory.com/121
+			
+			java버전 변경
+			alternatives --config java
+
+		
+		
+		시간 동기화\
+		war 파일 tomcat 배포
+		https://dololak.tistory.com/31
+		
+		oracle 11g 리눅스 다운로드\
+		https://thinmug.tistory.com/21
+		
+		
+		
+		apache tomcaty 연동
+		구글 키워드 : centos apache tomcat 연동
+		https://it-serial.tistory.com/entry/Linux-Apache%EC%99%80-Tomcat-%EC%97%B0%EB%8F%99
+		https://www.google.com/search?q=centos+apache+tomcat+%EC%97%B0%EB%8F%99&ei=kV29Y9LmKsDm2roP252X4AY&ved=0ahUKEwiS84Hog738AhVAs1YBHdvOBWwQ4dUDCA8&uact=5&oq=centos+apache+tomcat+%EC%97%B0%EB%8F%99&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCAAQgAQyBggAEAcQHjIGCAAQBxAeMgYIABAHEB46CggAEEcQ1gQQsAM6BwgAEB4QogQ6BQgAEKIEOgQIABBDOgcIABCABBANOggIABAIEAcQHkoECEEYAEoECEYYAFCRCFjwGGCRGmgCcAF4AIABjQGIAa0JkgEEMC4xMJgBAKABAcgBCsABAQ&sclient=gws-wiz-serp
+***		http://www.gnujava.com/board/article_view.jsp?article_no=2391&menu_cd=19&idx_notice=NOTICE_FLAG+DESC%2C&board_no=6
+		Tomcat도 단독으로 서비스를 할 수 있으나 보편적으로 Apache와 연동하여 사용하는 경우가 많습니다. 그 이유는 아래와 같습니다.
+		정적컨텐츠의 서비스 속도(이미지 동영상의 경우 Apache가 빠름)
+		여러 대의 Apache와 Tomcat서버의 클러스터링 구성
+		Apache 웹서버의 다양한 모듈 확장
+		보안 강화
+			vi 찾기
+			:/text 아래방형
+			:?test 윗방향
+			다음 소문자 n
+			이전 대문자 N
+		make && make install 에러시
+		https://moonoostar.tistory.com/66
+		
+		https://pizza301.tistory.com/39
+		java-1.8.0-openjdk
+
+		chcon -u system_u -r object_r -t httpd_modules_t /etc/httpd/modules/mod_jk.so
+
+		
+Document "/usr/local/tomcat8/webapps/"
+<Directory "/usr/local/tomcat8/webapps/">
+AllowOverride None
+Require all granted
+</Directory>
+
+		httpd 접근 제한 풀기
+		https://mr.kikni.com/tip/3438
+		# setenforce 0
+		# semanage permissive -a httpd_t
+
+
+		
+		java tomcat 설치
+	
+			/usr/bin/javac
+			/usr/lib/jvm/java-11-openjdk-11.0.17.0.8-2.el8.x86_64/bin/javac
+
+			java-11-openjdk
+			/usr/local/tomcat8/bin/catalina.sh: line 464: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-1.el7_9.x86_64/bin/java: No such file or directory
+			/usr/local/tomcat8/bin/catalina.sh: line 464: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-1.el7_9.x86_64/bin/java: No such file or directory
+			
+			https://mrgamza.tistory.com/703
+			firewall-cmd --permanent --zone=public --add-port=8080/tcp
+			firewall-cmd --reload
+			firewall-cmd --permanent --list-all
+
+
+	05. tomcat 설치/ 8080포트로 접근
+			etc/profile에서 위치 확인
+				/usr/local/lib/apache-tomcat-8.5.59/bin
+				./startup.sh
+				/usr/lib/jvm/java-1.8.0-open~
+				항상열려있게
+				ps -ef | grep apache 
+				netstat -anp | grep :80
+				netstat -anp | grep :8080
+			https://hgko1207.github.io/2020/10/12/linux-7/
+			https://hec-ker.tistory.com/331	
+			
+			cettos8 tomcat 설치/
+			https://mrgamza.tistory.com/703
+			yum install wget
+			wget http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.50.tar.gz
+			tomcat설치
+			https://yuntreee.github.io/linux/linux_tomcat/
+			wget http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.70/bin/apache-tomcat-8.5.70.tar.gz
+			tar xvfz apache-tomcat-8.5.70.tar.gz
+			mv apache-tomcat-8.5.70/ /usr/local
+			ln -s apache-tomcat-8.5.70/ tomcat
+			cd /usr/local/apache-tomcat-8.5.70
+
+			source /etc/profile
+			echo $CATALINA_HOME
+			/usr/local/apache-tomcat-8.5.70/bin/startup.sh
+			/usr/local/apache-tomcat-8.5.70/bin/shutdown.sh
+			netstat -ntl
+			
+			gitlab token
+			tokenname 	: 	test
+			token 		:	RhVYBgaqmVQ9iA4Hyr_x
+			
+			/var/lib/jenkins/workspace/test_test
+			
+			젠킨스 gitlab credentials
+			ID : gitlab_test_test1
+			Description : gitlab_test
+			
+		
+
+		Active project access tokens (1)
+		Token name
+		(Click to sort Ascending)	
+		Scopes
+		(Click to sort Ascending)	
+		Created
+		(Click to sort Ascending)	Last Used The last time a token was used(Click to sort Ascending)	
+		Expires
+		(Click to sort Ascending)	
+		Role
+		(Click to sort Ascending)	
+		Action
+		test	api, read_api, read_repository, write_repository, read_registry, write_registry	5 Jan, 2023	Never	Never	Guest	
+
+
+
+			
+			https://velog.io/@qudalsrn3x/CentOS-Tomcat-8-설치
+			https://www.infracody.com/2022/05/install-apache-tomcat-8-on-centos-7.html
+			
+	06. 젠킨슨
+					cd ~
+			mkdir download 파일만들기
+			sudo systemctl start httpd
+			sudo systemctl status httpd
+			sudo systemctl stop httpd
+			systemctl enable postgresql-13
+			systemctl start postgresql-13
+			systemctl restart postgresql-13
+			systemctl status firewalld
+			systemctl stop firewalld
+			firewall-cmd --permanent --zone=public --add-port=9090/tcp
+			firewall-cmd --reload
+			systemctl disable firewalld
+			systemctl start firewalld
+			systemctl status jenkins.service
+			echo $CATALINA_HOME
+			/usr/local/lib/apache-tomcat-8.5.59
+			tail -f /usr/local/lib/apache-tomcat-8.5.59/logs/catalina.out
+		자바설치 javahome 설정
+		"/usr/lib/jvm/
+		https://xmlangel.blogspot.com/2016/09/ubuntu-java.html
+		https://jjeongil.tistory.com/1774
+		sudo dnf install java-11-openjdk-devel
+		yum install java-11-openjdk-devel.x86_64
+		루트계정
+		아이피 : 
+		port : 
+		Connection type: SSH, Telnet
+
+		계정 :
+		su -
+		루트계정 
+		
+		JavaHOme
+		echo $JAVA_HOME
+		javac -version
+		which javac
+			/usr/bin/javac
+		readlink -f /usr/bin/javac
+			/usr/lib/jvm/java-7-openjdk-amd64/bin/javac
+			/usr/lib/jvm/java-11-openjdk-11.0.17.0.8-2.el7_9.x86_64/bin/java
+			JAVA_HOME=/usr/lib/jvm/java-11-openjdk추가
+		vi /etc/profile
+			export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+		echo $JAVA_HOME
+		젹용
+		source /etc/profile
+		
+		$update-alternatives --config java
+		$update-alternatives --config javac
+		
+		centos 버전 찾기
+		cat /etc/redhat-release
+		
+		git내려받아서 톰캣실행
+		https://south10.tistory.com/64
+		https://bedevelopers.tistory.com/241
+		
+		젠킨슨 플러그인 다운로드xx
+		https://oingdaddy.tistory.com/131
+		/jenkins설치장소/plugins/
+		
+		플러그인 직접 받아서 올리기
+		https://zzang9ha.tistory.com/407
+		
+		
+		
+		
+		
+		젠킨슨 찾기
+		find / -name jenkins
+		
+		
+	/etc/logrotate.d/jenkins
+/etc/sysconfig/jenkins
+/etc/rc.d/init.d/jenkins
+/var/lib/yum/repos/x86_64/7/jenkins
+/var/lib/jenkins
+/var/lib/jenkins/%C/jenkins
+/var/log/jenkins
+/var/cache/yum/x86_64/7/jenkins
+/var/cache/jenkins
+/usr/bin/jenkins
+/usr/share/jenkins
+
+
+
+/var/lib/jenkins
+/var/log/jenkins
+
+/var/lib/yum/repos/x86_64/7/jenkins
+/var/lib/jenkins
+/var/lib/jenkins/%C/jenkins
+/var/cache/yum/x86_64/7/jenkins
+
+
+		
+		젠킨슨 삭제
+		https://hhseong.tistory.com/entry/CentOS7-jenkins-%EC%99%84%EC%A0%84%EC%82%AD%EC%A0%9C
+		https://heeseong.co.kr/m/200
+		yum remove jenkins
+		
+		rm /etc/init.d/jenkins
+		rm -rf /var/lib/jenkins
+		rm -rf /etc/yum.repos.d/jenkins 관련파일 모두 삭제
+		
+		젠킨슨 다운그레이드
+		ps -ef | grep jenkins
+		jenkins.war 찾기
+		jenkins  3314333       1  5 19:15 ?        00:08:26 /usr/bin/java -Djava.awt.headless=true -Xmx16384m -Xms8192m -XX:MaxPermSize=512m -Dhudson.model.ParametersAction.keepUndefinedParameters=true -Dhudson.security.HudsonPrivateSecurityRealm.ID_REGEX=^[a-zA-Z0-9_.-]+$ -jar /usr/share/java/jenkins.war --web=/var/cache/jenkins/war --httpPort=8080
+		# cd /usr/share/java/
+		# mv jenkins.war jenkins.old 		
+		
+
+		설치
+		https://ko.linux-console.net/?p=541#gsc.tab=0
+		[Linux] wget certificate 오류 해결
+		https://heehehe-ds.tistory.com/entry/Linux-wget-certificate-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0
+		java 버전 변경
+		alternatives --config java
+		
+		vi /etc/profile
+		export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+		
+		port변경
+		/etc/sysconfig/jenkins 
+		/usr/lib/systemd/system/jenkins.service
+		
+		젠킨스 + tomcat 설정***
+		https://dejavuhyo.github.io/posts/jenkins-gitlab-tomcat/
+		
+		일괄설치
+		https://suwoni-codelab.com/linux/2017/06/17/Linux-CentOS-jenkins-gitlab/ ***
+		https://hhseong.tistory.com/198   ***
+		https://algo79.tistory.com/909 --> centos 연동 버전
+		dnf install jenkins
+		yum install jenkins-2.289.1
+		yum install jenkins-2.249.2
+		
+		젠킨스 설치 및 설정 centos 7버전
+		https://da2uns2.tistory.com/entry/Jenkins-CentOS%EC%97%90-Jenkins-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0 ***
+		
+		sudo vi /etc/profile
+		/usr/lib/jvm/java-11-openjdk
+		export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+		
+		2.289.1
+		
+		port : 9035
+		cat /var/lib/jenkins/secrets/initialAdminPassword
+		2b41c8ec75ef4c1d98f389ececf56a87
+		http://112.172.131.165:9090/
+		Username : test
+		Password : test
+		Fullname : test
+		
+		아이피 : 112.172.129.156
+		http://112.172.129.156:8080/
+		
+		
+		
+		https://da2uns2.tistory.com/entry/Jenkins-CentOS%EC%97%90-Jenkins-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
+		https://programmerk.tistory.com/20
+		/var/lib/jenkins/
+		
+		젠킨슨 포트 확인
+		sudo vi /etc/sysconfig/jenkins
+		systemctl list-units --type service
+		jenkins.service                    loaded active exited  LSB: Jenkins Automation Server
+		cd /etc/sysconfig/
+		less jenkins
+
+		방화벽
+		$sudo ufw allow 9090
+			firewall-cmd --permanent --zone=public --add-port=9090/tcp
+			firewall-cmd --permanent --zone=public --add-port=10000/tcp
+			firewall-cmd --reload
+			
+						
+			
+		설치 여부 확인
+		$ rpm -qa | grep jenkins
+		--> jenkins-2.303~~
+			jenkins-2.375.1-1.1.noarch
+			openjdk version "1.8.0_352"
+			jenkins-2.249.2-1.1.noarch
+
+		service 위치 확인
+		/usr/lib/systemd/system
+		
+		젠킨슨 관리자 암호 찾기
+		cat /var/lib/jenkins/secrets/initialAdminPassword
+		f916c10f0e434691b7e6dd9126516bff
+		
+		
+		
+		
+		
+		
+
+		/etc/sysconfig/jenkins
+		JENKINS_PORT=9035
+		로수정
+		 /usr/lib/systemd/system/jenkins.service
+		 Environment="JENKINS_PORT=9035"
+		로수정
+		설정
+		https://wikidocs.net/16281
+		sudo systemctl daemon-reload
+		service jenkins start
+		systemctl status jenkins.service
+		
+		포트 관련파일
+		https://server-engineer.tistory.com/840
+		
+		
+		권한설정
+		 chmod +x jenkins.rpmnew
+		 chmod +r jenkins.rpmnew
+		 chmod +w jenkins.rpmnew
+		 chmod +x jenkins.rpmnew
+		 chmod +r jenkins.rpmnew
+		 chmod +w jenkins.rpmnew
+		 chmod +x jenkins_20201022
+		 chmod +r jenkins_20201022
+		 chmod +w jenkins_20201022
+		 chmod +x jenkins
+		 chmod +r jenkins
+		 chmod +w jenkins
+		 sudo netstat -ntlp | grep :17005
+		 sudo netstat -tnlp	
+ netstat -nap | grep 포트번호	
+
+		vi jenkins
+		enter
+		i 수정
+		esc
+		:
+		:wq 저장 나가기
+		
+		-- Unit jenkins.service has begun starting up.
+		 1월 05 10:04:43 localhost.localdomain jenkins[32738]: jenkins: invalid Java version: openjdk version "1.8.0_352"
+		 1월 05 10:04:43 localhost.localdomain jenkins[32738]: OpenJDK Runtime Environment (build 1.8.0_352-b08)
+		 1월 05 10:04:43 localhost.localdomain jenkins[32738]: OpenJDK 64-Bit Server VM (build 25.352-b08, mixed mode)
+		 1월 05 10:04:43 localhost.localdomain systemd[1]: jenkins.service: main process exited, code=exited, status=1/FAILURE
+		 1월 05 10:04:43 localhost.localdomain systemd[1]: Failed to start Jenkins Continuous Integration Server.
+		-- Subject: Unit jenkins.service has failed
+
+		젠킨스
+		유저
+		Username : 
+		Password :
+		Fullname :
+		
+		
+		에러 젠킨슨,자바설정
+
+		systemctl start jenkins
+		systemctl enable jenkins
+		systemctl status jenkins
+		# firewall-cmd --permanent --zone=public --add-port=8080/tcp
+		# firewall-cmd --reload
+		
+		https://nowod.tistory.com/9
+		https://yjunyoung.tistory.com/entry/10-Jenkins-%EC%84%A4%EC%B9%98
+		
+		2023_test
+		젠킨슨 tomcat연동
+		find / -name tomcat
+		cd
+			gitlab token
+			tokenname 	: 	
+			token 		:	
+					
+			https://velog.io/@zzarbttoo/JenkinsGit-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0Git-Token-%EB%B0%9C%EA%B8%89-Jenkins-Credential-%EB%93%B1%EB%A1%9D		
+
+			
+			
+			젠킨스 gitlab credentials
+			ID : gitlab_test_test1
+			Description : gitlab_test
+			
+			wget -c http://apache.mirror.cdnetworks.com/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz
+			tar zxvf apache-maven-3.8.7-bin.tar.gz -C /usr/local
+			 vi /etc/profile.d/maven.sh
+			export M2_HOME=/usr/local/apache-maven-3.8.7
+			export PATH=${M2_HOME}/bin:${PATH}
+			source /etc/profile.d/maven.sh
+			
+			/usr/local/apache-tomcat-8.5.70/
+			JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+			/usr/lib/jvm/java-1.8.0-openjdk
+			/usr/local/apache-maven-3.8.7
+		find / -name mav
+		find . -name "file.txt" -delete
+		rm *picture*.*
+		find / -type f -name "*apache*" -exec rm {} \;
+		tomcat manager user: 
+		 tomcat//
+		 tomcat
+		
+		git clone tomcat
+		https://mrgamza.tistory.com/703
+		
+			
+		젠킨슨
+		maven 경로
+		https://royleej9.tistory.com/entry/Jenkins-Maven-%EC%84%A4%EC%A0%95		
+		
+		JDK
+		Name : test_jdk
+		Version : 8u202
+		
+		Maven 
+		Name : test_maven
+		Version : 3.8.7
+		
+		
+		test_test
+		
+		문자열찾기
+		:/text
+		:?text
+		find / -name test
+		<localRepository>/usr/local/repository</localRepository>
+		<localRepository>/var/lib/jenkins/workspace</localRepository>
+		  <!-- localRepository
+		   | The path to the local repository maven will use to store artifacts.
+		   |
+		   | Default: ${user.home}/.m2/repository
+		  <localRepository>/path/to/local/repo</localRepository>
+		  -->
+		  <localRepository>/var/lib/jenkins/workspace</localRepository>
+		/var/lib/jenkins/workspace/test/web_builder
+		mvn install	
+		cd /톰캣설치폴더/bin
+		./startup.sh
+		
+		
+		
+
+		
+		test_test1
+		/usr/local/apache-maven-3.8.7/conf/setting.xml
+		
+		젠킨스 tomcat 유저 설정
+		https://hongs-coding.tistory.com/133
+
+		
+		https://selfi.tistory.com/4
+		http://112.172.131.165:8080/manager/html
+		
+		112.172.129.156
+		
+		git credentials 연결
+		https://velog.io/@zzarbttoo/JenkinsGit-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0Git-Token-%EB%B0%9C%EA%B8%89-Jenkins-Credential-%EB%93%B1%EB%A1%9D
+		
+		/etc/alternatives/jrunscript
+/etc/alternatives/jrunscript.1.gz
+/usr/bin/jrunscript
+/usr/lib/jvm/java-11-openjdk-11.0.18.0.10-1.el7_9.x86_64/bin/jrunscript
+/usr/share/man/man1/jrunscript.1.gz
+/usr/share/man/man1/jrunscript-java-11-openjdk-11.0.18.0.10-1.el7_9.x86_64.1.gz
+/usr/share/man/ko/man1/runscript.1.gz
+/usr/local/ex05_maria/runscript
+
+		
+		
+		tomcat 위치
+			JENKINS SHELL SCRIPT
+			sudo sh /test/runscript/jenkins.sh
+			
+			jenkins.sh 
+			#!/bin/shsell
+			today=`date "+%Y%m%d%H%M%S"`
+			sudo sh /test/runscript/webStop.sh
+			sleep 10s
+			sudo rm -rf /test/tomcat/apache-tomcat-8.5.27/web/webapps/ 
+			sleep 1s
+			sudo mv /test/tomcat/apache-tomcat-8.5.27/web/webapps/.war /test/tomcat/data/_BAK_${today}.war
+			sleep 1s
+			sudo cp -rp /var/lib/jenkins/workspace/test/web_builder/target/platd_dwb-1.0.0-BUILD-SNAPSHOT.war /test/tomcat/apache-tomcat-8.5.27/web/webapps/.war
+			sleep 1s
+			sudo sh /test/runscript/webStart.sh
+			
+			/var/lib/jenkins/workspace/
+			-------------------------------------------------------
+			/usr/local/ex05_maria/warBackUp/_BAK_${today}.war
+
+			
+			ROOR.WAR 변경하는법
+			sudo rm -rf /test/tomcat/apache-tomcat-8.5.27/web/webapps/ 
+			sudo rm /test/tomcat/apache-tomcat-8.5.27/web/webapps/.war 
+			sudo cp -rp /test/tomcat/data/_BAK_20230109101643.war /test/tomcat/data/_BAK_20230109101643_copy.war
+			sudo mv  /test/tomcat/data/_BAK_20230109101643.war /test/tomcat/apache-tomcat-8.5.27/web/webapps/.war
+			sudo sh /test/runscript/webStart.sh
+			http://112.172.129.156/ 으로 접속
+			
+			
+			-----------------------
+			집셋팅
+			https://github.com/puchochiri/ex05_maria.git
+			http://192.168.219.107:8080/board/list
+			
+			
+			sudo sh /usr/local/ex05_maria/runscript/jenkins.sh
+			
+			Execute shell
+			sudo sh /usr/local/ex05_maria/runscript/webStop.sh
+				sudo rm -rf /usr/local/tomcat8/webapps/
+				sudo sh /usr/local/ex05_maria/runscript/jenkins.sh
+				sudo sh /usr/local/runscript/webStart.sh
+		
+			
+			jenkins.sh
+			#!/bin/sh
+			today='date "+%Y%m%d%H%M%S"'
+			sleep 11s
+			sudo mv /usr/local/tomcat8/webapps/.war /usr/local/ex05_maria/war_backup/_${today}.war
+			sleep 1s
+			sudo cp -rp /var/lib/jenkins/workspace/ex05_maria/ex05.mariadb/target/controller-1.0.0-BUILD-SNAPSHOT.war /usr/local/tomcat8/webapps/.war
+			sleep 1s
+
+	jenkins 권한설정
+	https://minholee93.tistory.com/entry/ERROR-Jenkins-Permission-denied-sudo-no-tty-present-and-no-askpass-program-specified
+		
+		role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<role rolename="admin-gui"/>
+<role rolename="admin-script"/>
+<user username="admin" password="Q!w2e3r4t5" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+
+		
+		
+		find /usr/local/apache-tomcat-8.5.70/work/Catalina/localhost -name "*_jsp.java" -exec rm -rf {} \;
+		find /usr/local/apache-tomcat-8.5.70/work/Catalina/localhost -name "*_jsp.class" -exec rm -rf {} \;
+			
+	06. postgresql 설치 /5432포트로 접근
+			/var/lib/pgsql/13/data/
+			postgres//12340
+			dejavuhyo.github.io/posts/install-postgresql-on-centos/
+			PostgresSql 13다운
+			systemctl enable postgresql-13
+			systemctl start postgresql-13
+			systemctl restart postgresql-13
+			데이터베이스 접속확인
+			whoami
+			사용자 변경
+			su - postgres
+			psql -d postgres
+			전체 db리스트 소유자 보기
+			postgres=# \list
+			https://www.zinnunkebi.com/linux-centos7-postgresql12-install/
+			GRANT ALL PRIVILEGES ON DATABASE gitwebdb to gitweb;
+
+			스키마생성
+			postgres=# CREATE SCHEMA gitwebdb authorization gitweb;
+			스키마목록
+			postgres=# \dn
+
+			
+			putty
+			shift + insert 붙여넣기
+
+			$ sudo su - postgres -c 'ps -o ppid,pid,cmd'
+			
+			su - gitweb
+			psql -d gitweb1
+			CREATE DATABASE gitwebdb OWNER gitweb ENCODING 'utf-8';
+			ROLE생성
+			ALTER ROLE gitweb WITH PASSWORD 'gitweb';
+
+			
+			https://newly0513.tistory.com/154
+			https://newly0513.tistory.com/164
+			https://indienote.tistory.com/192
+			https://jjeongil.tistory.com/1818
+			https://copycoding.tistory.com/312
+			
+			https://hgko1207.github.io/2020/09/10/postgresql-1/
+			https://brunch.co.kr/@daniellim/38
+	07.	puttty로 열기
+2일
+	01.	Rabbitmq Server 설치
+			rabbitmq  centos 설치
+			https://www.rabbitmq.com/install-rpm.html
+			vi /etc/yum.repos.d/rabbitmq.repo
+			usr/lib64/erlang/bin.ermd충돌
+			usr/lib64/erlang/bin.ermd충돌
+			> yum list installed | grep erlang  
+			> yum remove erlang-erts-R16B-03.17.el7.x86_64 
+			chkconfig rabbitmq-server on
+			/sbin/service rabbitmq-server start
+			sudo service rabbitmq-server stop
+			sudo service rabbitmq-server status
+			rabbitmq-plugins enable rabbitmq_management
+			systemctl status firewalld
+			systemctl stop firewalld
+			systemctl disable firewalld
+			systemctl start firewalld
+			rabbitmqctl add_user pucho pucho
+			rabbitmqctl set_user_tags pucho administrator			
+			rabbitmqctl set_permissions -p / pucho ".*" ".*" ".*"
+			
+			
+/sbin/service rabbitmq-server status
+
+/sbin/service rabbitmq-server stop
+			112.172.131.165:15672/
+			rabbitmq  window 설치
+			https://oingdaddy.tistory.com/165
+			https://oingdaddy.tistory.com/165#:~:text=RabbitMQ%20Management%20%EC%A0%91%EC%86%8D%EC%9D%80%20http,guest%20%EB%A1%9C%20%EC%A0%91%EC%86%8D%ED%95%A0%20%EC%88%98%20%EC%9E%88%EB%8B%A4.&text=%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%9D%B4%20%EB%90%98%EA%B3%A0%20Management%EA%B0%80%20%EC%8B%A4%ED%96%89%EB%90%9C%20%EB%AA%A8%EC%8A%B5%EC%9D%B4%EB%8B%A4.
+				
+				C:\Program Files\RabbitMQ Server\rabbitmq_server-3.11.4\sbin
+				netstat -ano | findstr 5672
+				cmd cd C:\Program Files\RabbitMQ Server\rabbitmq_server-3.11.4\sbin
+				cmd rabbitmq-plugins enable rabbitmq_management
+				http://localhost:15672/
+					guest/guest
+			rabbitmq_springboot_프로젝트
+			https://oingdaddy.tistory.com/166	
+				cd C:\Users\doawi
+				taskkill /f /pid 7004	
+				TCP    [::]:9080              [::]:0                 LISTENING       7004
+				TCP    [::]:9081              [::]:0                 LISTENING       7816
+			https://spring.io/guides/gs/messaging-rabbitmq/	
+			
+				sample.exchange 생성
+				sample.queue	생성
+				Exchange : sample.exchange
+				Queue : sample.queue
+				Routing key : sample.oingdaddy.# 
+				localhost:9081/sample/queue
+			https://backtony.github.io/spring/2021-09-21-spring-rabbitmq-1/
+
+				원격 셋팅
+
+				
+				
+			https://www.rabbitmq.com/install-rpm.html
+				usr/lib/rabbitmq/lib
+				find / -name rabbitmq -type d
+				
+			https://vitalholic.tistory.com/376
+		
+			Rabbitmq : AMQP를 따르는 오픈소스 메시지 브로커, 메세지를 많은 사용자들에게 전달, 요청에 대한 처리 시간이 길때, 해당 요청을
+						다른 API에게 위임하고 빠른 응답을 할 때 많으 시용, 
+			https://sangchul.kr/48
+			https://oingdaddy.tistory.com/166
+			https://dev-gorany.tistory.com/324
+			
+					** body 글 뿌리기
+					** package 정리
+		
+	02.	spring boot rabbitmq receiver 개발
+		https://xzio.tistory.com/1491
+		https://umanking.github.io/2020/11/25/spring-rabbitmq-tutorial/
+		- Spring 개발환경 셋팅
+		- 개발
+		- 테스트 서버에 구동
+		- Rabbitmq Server에서 메시지 날리고 해당 메시지 받는 것 까지 확인
+		
+3일
+	01. 리액트 개발환경 셋팅
+		reactbook.
+		C:\Users\doawi\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\demo>gradlew bootRun
+		C:\Users\doawi\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\demo
+	02. GIT HUB에서 소스(WEB, API) 내려 받아 빌드하고 테스트 서버에 구동 테스트
+		- DB, API 주소 변경 필요
+		- 테스트 서버에서 돌아 가야함
+		git
+		Taeyoung.Kim@obigo.com
+		start@3412
+		
+		sts git token : 
+		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
+		vs_code 빌드
+			npm install -g serve 혹은
+			npx serve -s build
+			
+		putty
+			ifconfig : 112.172.131.165
+			gitweb
+			gitweb
+			
+			psql -h 112.172.131.165 -U postgres template1
+			$ sudo systemctl start postgresql-12
+			http://localhost:3001/login
+		
+		git clone
+		npm install
+		package.json --> pom.xml
+		npm.start
+		
+		react 배포
+		https://alexrider94.tistory.com/5
+		spring
+		C:\Users\doawi\git
+		
+		재부팅
+		sudo systemctl reboot
+		react- 재실행
+		https://satisfactoryplace.tistory.com/168
+4일	
+	01. API에 전역변수 GET,SET API 추가
+		-  전역변수 또한 추가
+		전역변수 : 어떤 변수 영역 내에서느 접근할 수 있는 변수
+	02. WEB 강제 구동 페이지 추가
+	03. 강제구동페이지에 전역변수 GET API를 REACT QUERY를 통해 실시간으로 가져와서 뿌려줌
+		- 리스트가 아님
+	04. POSTMAN 같은 RESTAPI 테스트 프로그램으로 전역변수의 데이터 변경
+		- 이때 위에서 개발한 강제구동 페이지에 값이 변경되어여함
+
+5일 
+	01. SPRING BOOT rabbitmq receiver 에서 메시지를 받으면 해당 데이터를 전역변수 set API를 호출
+	02. Rabbitmq Server에서 메시지 전송
+		- 이떄 강제구동 페이지에 값이 전송한 메시지 값으로 변경되어야함
+
+5일
+
+
+
+
+
+빌드 방법
+		<아파치 서버에 react build 하기>
+
+1. react : npm run build  후 WinSCP 통해 home/nayekim(내계정경로)/react(폴더생성)
+
+ 1.1) react 폴더를 만들어 빌드된 내용을 복사하여 옮겨둔다. 
+
+​
+
+2.  cp -r /home/nayekim/react /var/www 
+
+       : /home/nayekim/react 안에 내용을 아파치경로 /var/www  로 복사한다.
+
+ 2.1) 복사하면  /var/www/react 로 폴더가 생성된다.
+
+3. 원래  /var/www 경로에 html 이 있는데 
+		cd /var/www
+  3.1)  rm -rf html  : html 을 지우고
+
+  3.2)  mv react html   : react -> html 로 옮겨 초기화면으로 저장한다.
+  
+  
+
+​
+
+<톰캣 서버에 spring build 하기>
+
+​
+
+Run As -> Maven build 하면 targer 폴더에 war 파일이 생성된다. 
+
+서버 아파치톰캣 폴더안 -> webapps -> war파일 넣어준다.
+
+war 파일 이름을 .war 로 변경한다.
+
+/usr/local/lib/apache-tomcat-8.5.59/webapps
+
+mkdir react-app
+https://dev.classmethod.jp/articles/the-process-from-installing-react-to-distributing-it/
+
+
+MainBar.jsx
+	import { test } from '../Login/ApiService';
+	
+	
+ApiService.js
+/** test
+ * 
+ */
+ export function test(){
+    //sessionStorage.setItem("ACCESS_TOKEN", '');
+    //sessionStorage.setItem("USER_NAME", '');
+    localStorage.setItem("ACCESS_TOKEN", '');
+    localStorage.setItem("USER_NAME", '');
+    window.location.href = "/test";
+}
+	
+test.jsx
+	
+	
+	
+postman
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-GB,en;q=0.9,ko-KR;q=0.8,ko;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Content-Length: 37
+content-type: application/json
+Host: localhost:8080
+Origin: http://localhost:3000
+Referer: http://localhost:3000/
+sec-ch-ua: "Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+		
+		
+payload
+		{username: "test", password: "test"}
+password
+: 
+"test"
+username
+: 
+"test"
+
+mariadb.x86_64                           1:5.5.68-1.el7                    @base
+mariadb-libs.x86_64                      1:5.5.68-1.el7                    @base
+mariadb-server.x86_64                    1:5.5.68-1.el7  
+
+
+--------------
+mariadb
+
+yum update
+
+  1. Contact the upstream for the repository and get them to fix the problem.
+
+     2. Reconfigure the baseurl/etc. for the repository, to point to a working
+        upstream. This is most often useful if you are using a newer
+        distribution release than is supported by the repository (and the
+        packages for the previous distribution release still work).
+
+     3. Run the command with the repository temporarily disabled
+            yum --disablerepo=mariadb ...
+
+     4. Disable the repository permanently, so yum won't use it by default. Yum
+        will then just ignore the repository until you permanently enable it
+        again or use --enablerepo for temporary usage:
+
+            yum-config-manager --disable mariadb
+        or
+            subscription-manager repos --disable=mariadb
+
+     5. Configure the failing repository to be skipped, if it is unavailable.
+        Note that yum will try to contact the repo. when it runs most commands,
+        so will have to try and fail each time (and thus. yum will be be much
+        slower). If it is a very temporary problem though, this is often a nice
+        compromise:
+
+            yum-config-manager --save --setopt=mariadb.skip_if_unavailable=tru
+			
+			
+			yum 사용 안됨은 시간설정문제
+			"Peer's Certificate has expired."
+			https://nirsa.tistory.com/248\
+		
+			# rpm -qa | grep -i mariadb
+
+
+
+maria 포함한 directory 까지 모두 지우기
+ find / -name *maria* -exec rm {} \;
+ find / -name *maria* -exec rm -rf \;
+ find / -name *mysql* -delete
+ 
+ 
+ * 한국어 한국시간으로 설정 할 것 centos7 설치시 
+	영어, 미국으로 설정시 yum update, mariadb 설치안됨\
+	
+	
+	
+	
+	https://velog.io/@qudalsrnt3x/CentOS-Tomcat-8-%EC%84%A4%EC%B9%98
+	
+	java 11 설치
+	https://velog.io/@qudalsrnt3x/CentOS-open-jdk-11-%EC%84%A4%EC%B9%98
+
+	centos 8 설치
+	https://velog.io/@qudalsrnt3x/CentOS-Tomcat-8-%EC%84%A4%EC%B9%98
+
+	mariadb 실행(계정생
+	https://ansan-survivor.tistory.com/1341
+	CREATE USER 'book-ex'@'localhost' IDENTIFIED BY 'book-ex';
+	GRANT ALL PRIVILEGES ON BOOK.* TO 'book-ex'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'book-ex'@'192.168.219.%' IDENTIFIED BY 'book-ex';
+ grant all privileges on *.* to ''@'%'identified by '';
+	
+	mysql -u  -p
+	use mysql
+	MariaDB [mysql]> select host, user from user;
+
+	https://brandon-dev.tistory.com/24
+	mysql -u
+	CREATE DATABASE BOOK;
+	
+GRANT ALL PRIVILEGES ON *.* TO 'book_ex'@'localhost' IDENTIFIED BY 'password';
+
+
+
+
+
+Console sign-in URL : https://688960338759.signin.aws.amazon.com/console
+User name : cli-user-test
+Console password : *oUbd_0{
+Access key : AKIA2A2J4PND7JGH5AZF
+Secret access key : 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
+
+
+
+
+
+
+aws
+		If you are creating programmatic access 
+		through access keys or service-specific credentials for AWS CodeCommit 
+		or Amazon Keyspaces, 
+		you can generate them after you create this IAM user. Learn more 
+
+
+			Managing access keys (AWS CLI)
+			To manage the IAM user access keys from the AWS CLI, run the following commands.
+
+			To create an access key: aws iam create-access-key
+
+			To deactivate or activate an access key: aws iam update-access-key
+
+			To list a user's access keys: aws iam list-access-keys
+
+			To determine when an access key was most recently used: aws iam get-access-key-last-used
+
+			To delete an access key: aws iam delete-access-key
+
+
+
+		iam-user//users//Provide user access to the AWS Management Console - optional
+		//I want to create an IAM user//Autogenerated password
+
+		access-key secret Access key 받는법
+		iam/users/cli-user/Security credentials/Access keys
+
+
+
+		디렉토리
+		C:\Users\doawi\.aws
+		C:\Users\doawi\.elasticbeanstalk
+
+		application-prod.yaml - 서버 설정
+		
+
+		빌드
+		gradlew build
+		저장위치
+		C:\Users\doawi\git\springboot_react_pro_01_aws\demo\build\libs
+		C:\Users\doawi\git\springboot_react_pro_01_aws\demo>eb create --database --elb-type application --instance-type t3.micro
+		Enter Environment Name
+		(default is TodoApplication-backend-dev): PROD-TODO-API-SERVICE
+		Enter DNS CNAME prefix
+		(default is prod-todo-api-service): prod-todo-api-service-test
+
+		Would you like to enable Spot Fleet requests for this environment? (y/N): N
+
+		**Enter an RDS DB username (default is "eb"): tododb
+		**Enter an RDS DB master password: test
+		
+		
+		PS C:\Users\doawi\git\springboot_react_pro_01_aws\demo> eb create --database --elb-type application --instance-type t2.micro
+Enter Environment Name
+(default is TodoApplication-backend-test-dev): PROD-TODO-API-SERVICE-TEST
+Enter DNS CNAME prefix
+(default is PROD-TODO-API-SERVICE-TEST): prod-todo-api-service-test
+
+Would you like to enable Spot Fleet requests for this environment? (y/N): N
+
+Enter an RDS DB username (default is "eb"): tododb
+Enter an RDS DB master password:test
+Retype password to confirm:test
+		
+		
+		
+		
+		C:\Users\doawi>eb create --database --elb-type application --instance-type t3.micro
+Enter Environment Name
+(default is TodoApplication-backend-dev): PROD-TODO-API-SERVICE
+Enter DNS CNAME prefix
+(default is PROD-TODO-API-SERVICE22): prod-todo-api-service-test
+
+Would you like to enable Spot Fleet requests for this environment? (y/N): N
+
+Enter an RDS DB username (default is "eb"): tododb
+Enter an RDS DB master password:
+Retype password to confirm:
+Uploading: [##################################################] 100% Done...
+Environment details for: PROD-TODO-API-SERVICE
+  Application name: TodoApplication-backend
+  Region: ap-northeast-2
+  Deployed Version: app-230308_230256452424
+  Environment ID: e-s7m2nawimk
+  Platform: arn:aws:elasticbeanstalk:ap-northeast-2::platform/Corretto 11 running on 64bit Amazon Linux 2/3.4.5
+  Tier: WebServer-Standard-1.0
+  CNAME: prod-todo-api-service-test.ap-northeast-2.elasticbeanstalk.com
+  Updated: 2023-03-08 14:03:08.739000+00:00
+Printing Status:
+2023-03-08 14:03:07    INFO    createEnvironment is starting.
+2023-03-08 14:03:08    INFO    Using elasticbeanstalk-ap-northeast-2-688960338759 as Amazon S3 storage bucket for environment data.
+2023-03-08 14:03:36    INFO    Created security group named: sg-021d27bd8f92b300e
+2023-03-08 14:03:51    INFO    Created security group named: awseb-e-s7m2nawimk-stack-AWSEBSecurityGroup-177PGGBN8Q5X7
+2023-03-08 14:03:51    INFO    Created target group named: arn:aws:elasticloadbalancing:ap-northeast-2:688960338759:targetgroup/awseb-AWSEB-YY2G4T6TGURI/c55b9d2aeb9c4a7e
+2023-03-08 14:03:51    INFO    Created Auto Scaling launch configuration named: awseb-e-s7m2nawimk-stack-AWSEBAutoScalingLaunchConfiguration-amMVxuaxWHe7
+2023-03-08 14:04:07    INFO    Created security group named: awseb-e-s7m2nawimk-stack-AWSEBRDSDBSecurityGroup-MRW28XYMMCZD
+2023-03-08 14:04:07    INFO    Creating RDS database named: awseb-e-s7m2nawimk-stack-awsebrdsdatabase-y5idejd3mnxk. This may take a few minutes.
+2023-03-08 14:05:41    INFO    Created load balancer named: arn:aws:elasticloadbalancing:ap-northeast-2:688960338759:loadbalancer/app/awseb-AWSEB-12WR951C3ATR2/c9b8cbedc0ed799f
+2023-03-08 14:05:57    INFO    Created Load Balancer listener named: arn:aws:elasticloadbalancing:ap-northeast-2:688960338759:listener/app/awseb-AWSEB-12WR951C3ATR2/c9b8cbedc0ed799f/899e4b65500fc62c
+2023-03-08 14:11:17    INFO    Created RDS database named: awseb-e-s7m2nawimk-stack-awsebrdsdatabase-y5idejd3mnxk
+2023-03-08 14:11:49    INFO    Created Auto Scaling group named: awseb-e-s7m2nawimk-stack-AWSEBAutoScalingGroup-OEW9RADOIFR6
+2023-03-08 14:11:49    INFO    Waiting for EC2 instances to launch. This may take a few minutes.
+2023-03-08 14:12:05    INFO    Created Auto Scaling group policy named: arn:aws:autoscaling:ap-northeast-2:688960338759:scalingPolicy:ba14b000-c603-4005-9e34-85bd84c427d4:autoScalingGroupName/awseb-e-s7m2nawimk-stack-AWSEBAutoScalingGroup-OEW9RADOIFR6:policyName/awseb-e-s7m2nawimk-stack-AWSEBAutoScalingScaleDownPolicy-AFSugrWcr41C
+2023-03-08 14:12:05    INFO    Created Auto Scaling group policy named: arn:aws:autoscaling:ap-northeast-2:688960338759:scalingPolicy:efe33af2-b6b9-4880-9592-50e534e437e4:autoScalingGroupName/awseb-e-s7m2nawimk-stack-AWSEBAutoScalingGroup-OEW9RADOIFR6:policyName/awseb-e-s7m2nawimk-stack-AWSEBAutoScalingScaleUpPolicy-iz775BqifWdX
+2023-03-08 14:12:05    INFO    Created CloudWatch alarm named: awseb-e-s7m2nawimk-stack-AWSEBCloudwatchAlarmLow-SOMYAC9QNJ2O
+2023-03-08 14:12:05    INFO    Created CloudWatch alarm named: awseb-e-s7m2nawimk-stack-AWSEBCloudwatchAlarmHigh-QCUO4O8E5V44
+2023-03-08 14:12:24    INFO    Instance deployment successfully detected a JAR file in your source bundle.
+2023-03-08 14:12:24    INFO    Instance deployment successfully generated a 'Procfile'.
+2023-03-08 14:12:26    INFO    Instance deployment completed successfully.
+2023-03-08 14:13:30    INFO    Successfully launched environment: PROD-TODO-API-SERVICE
+
+
+
+
+		
+C:/Users/doawi/git/springboot_react_pro_01_aws/demo/build/libs/demo-0.0.1-SNAPSHOT.jar
+	
+	Aws CLI를 이용한 RDS확인
+	aws rds describe-db-instances --region ap-northeast-2
+	
+	Aws CLI를 이용한 오토 스케일링 확인
+	aws  autoscaling describe-auto-scaling-groups --region ap-northeast-2
+	
+	AWS CLI를 이용한 로드 밸런서 확인
+	aws elbv2 describe-load-balancers --region ap-northeast-2
+
+
+aws 환경 삭제
+https://aws.amazon.com/ko/premiumsupport/knowledge-center/elastic-beanstalk-deletion-failure/
+aws cloudformation delete-stack --stack-name awseb-e-ztrauxujck-stack --retain-resources "AWSEBSecurityGroup" --region us-east-1
+
+
